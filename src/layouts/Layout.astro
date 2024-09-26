@@ -1,0 +1,155 @@
+---
+// import { SEO } from "astro-seo";
+
+interface Props {
+	title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+    <!-- <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          type: "website",
+          image: "https://petertait.com/opengraph.png",
+        }
+      }}
+      twitter={{
+        creator: "@petertait"
+      }}
+      extend={{
+        link: [{ rel: "icon", href: "/favicon.svg" }],
+        meta: [
+          {
+            name: "twitter:image",
+            content: "http://petertait.com/twitter.png",
+          },
+          { name: "twitter:title", content: title },
+          { name: "twitter:description", content: description },
+        ],
+      }}
+    /> -->
+    <!-- <script 
+      async 
+      src="https://www.googletagmanager.com/gtag/js?id=G-X94MH3Y2PX"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X94MH3Y2PX');
+    </script> -->
+	</head>
+	<body>
+		<slot />
+    <main>
+    <img class="logo" src="/eagle-labs-high-resolution-logo-white.svg" alt="Eagle Labs" />
+    <h1>Architecting The Future.</h1>
+    <p>At EagleLabs Consulting, we are dedicated to architecting the future.</p>
+    <p>With a commitment to software engineering excellence, strategic engineering consultancy, and active open-source contribution, we strive to shape the future of technology.</p>
+    <p>Our team combines expertise, innovation, and a passion for community-driven collaboration to drive forward progress and empower businesses to thrive in the digital age.</p>
+    <a href="mailto:haythem@eagleconsulting.xyz">contact</a>
+    <p class="legal">© EagleLabs Consulting. All rights reserved.</p>
+	</main>
+	</body>
+</html>
+<style is:global>
+  @font-face {
+      font-family: 'apercu';
+      src: url('/apercu.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+	:root {
+		--ink: 255, 255, 255;
+    --paper: 0, 0, 0;
+    --font: 'apercu', sans-serif;
+	}
+
+	html {
+		font-family: var(--font);
+		background: rgb(var(--paper));
+	}
+
+  body {
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+<style>
+	main {
+		margin: auto;
+		padding: 4rem 1rem;
+		width: 700px;
+		max-width: calc(100% - 2rem);
+		font-size: 1.6rem;
+		line-height: 1.6;
+    color: rgb(var(--ink));
+    text-transform: lowercase;
+    
+    @media (max-width: 700px) {
+      padding: 3rem 25px 1rem;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 500px) {
+      max-width: 100%;
+    }
+	}
+  
+	.logo {
+    width: 250px;
+    height: auto;
+    padding-bottom: 1rem;
+  }
+  
+	h1 {
+		font-size: 4rem;
+		font-weight: normal;
+		line-height: 1.2;
+		margin-bottom: 1em;
+
+    @media (max-width: 800px) {
+      font-size: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 2rem;
+    }
+	}
+
+  a {
+    color: rgba(var(--ink), 1);
+
+    &:hover {
+      color: rgba(var(--ink), 0.7);
+    }
+  }
+
+
+  .legal {
+    padding-top: 4rem;
+    opacity: 0.5;
+  }
+</style>
